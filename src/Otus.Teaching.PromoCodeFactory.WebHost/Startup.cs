@@ -52,7 +52,7 @@ namespace Otus.Teaching.PromoCodeFactory.WebHost
             }
 
             app.UseOpenApi();
-            app.UseSwaggerUi3(x =>
+            app.UseSwaggerUi(x =>
             {
                 x.DocExpansion = "list";
             });
