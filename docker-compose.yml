@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  api:
+    build: src
+    container_name: 'docker_hw_api'
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - "ConnectionStrings:PromoCodeFactoryDb=Host=db;Database=docker_hw_db;Username=postgres;Password=pass"
+    depends_on: 
+      - db
+      
+  db:
+    image: "postgres"
+    container_name: 'docker_hw_db'
+    environment:
+      POSTGRES_DB: docker_hw_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5438:5432"
+    restart: "no"
